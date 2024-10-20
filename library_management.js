@@ -70,3 +70,20 @@ class Section {
             }
         }
     }
+
+    // Task 4: Create a VIPPatron Class that Inherits from Patron
+
+    class VIPPatron extends Patron {
+        constructor(name) {
+            super(name);
+            this.priority = true;
+        }
+    
+        borrowBook(book) {
+            if (book.isAvailable) {
+                super.borrowBook(book);
+            } else {
+                console.log(`"${book.title}" is currently unavailable for borrowing, but ${this.name} has VIP priority.`);
+            }
+        }
+    }
