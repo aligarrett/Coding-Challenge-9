@@ -43,14 +43,14 @@ class Section {
         });
     }
 
-    // Task 5:  Handle Books Borrowing and Returning
+// Task 5:  Handle Books Borrowing and Returning
 
     calculateTotalBooksAvailable() {
         return this.getAvailableBooks();
     }
 }
 
-    // Task 3: Create a Patron Class
+// Task 3: Create a Patron Class
 
     class Patron {
         constructor(name) {
@@ -78,7 +78,7 @@ class Section {
         }
     }
 
-    // Task 4: Create a VIPPatron Class that Inherits from Patron
+// Task 4: Create a VIPPatron Class that Inherits from Patron
 
     class VIPPatron extends Patron {
         constructor(name) {
@@ -94,5 +94,37 @@ class Section {
             }
         }
     }
+// Task 6: Create and Manage Sections and Patrons
 
+// Create sections
+const fictionSection = new Section("Fiction");
+const fantasySection = new Section("Fantasy");
+
+// Create books
+const book1 = new Book("The Help", "Kathryn Stockett", "12345");
+const book2 = new Book("Fahrenheit 451", "Ray Bradbury", "67890");
+const book3 = new Book("The Golden Compass", "Philip Pullman", "11223");
+const book4 = new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "33445");
+
+// Add books to sections
+fictionSection.addBook(book1);
+fictionSection.addBook(book2);
+fantasySection.addBook(book3);
+fantasySection.addBook(book4);
+
+// Create patrons
+const patron1 = new Patron("Mac");
+const vipPatron = new VIPPatron("Cheese");
+
+// Patrons borrow books
+patron1.borrowBook(book1);
+vipPatron.borrowBook(book3);
+
+// Calculate total available books
+console.log(`Fiction Section Available Books: ${fictionSection.calculateTotalBooksAvailable()}`);
+console.log(`Fantasy Section Available Books: ${fantasySection.calculateTotalBooksAvailable()}`);
+
+// Return a book
+patron1.returnBook(book1);
+console.log(`Fiction Section Available Books after return: ${fictionSection.calculateTotalBooksAvailable()}`);
     
